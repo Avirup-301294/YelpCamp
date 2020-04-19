@@ -21,10 +21,10 @@ var commentRoutes    = require("./routes/comments"),
 
  //mongoose.connect('mongodb://localhost:27017/yelp_camp', 
 				 //{useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:false});
-mongoose.set("useNewUrlParser","true");
-mongoose.set("useCreateIndex", "true");
-mongoose.set("useFindAndModify", "false");
-mongoose.set("useUnifiedTopology","true");
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 var url = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp'
 mongoose.connect(url);
 // mongoose.connect("mongodb+srv://avirup:Avirup@cluster0-l1w38.mongodb.net/test?retryWrites=true&w=majority",{
