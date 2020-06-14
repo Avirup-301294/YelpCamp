@@ -36,7 +36,7 @@ mongoose.connect(url,{
 }).catch(err => {
 	console.log("Error:",err.message);
 });
-// mongoose.connect("mongodb+srv://avirup:Avirup@cluster0-l1w38.mongodb.net/test?retryWrites=true&w=majority",{
+// mongoose.connect("mongodb+srv://****:****@cluster0-l1w38.mongodb.net/test?retryWrites=true&w=majority",{
 // 	useNewUrlParser: true,
 // 	useCreateIndex: true,
 // 	useFindAndModify: false,
