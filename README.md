@@ -29,7 +29,7 @@
           <li>connect-flash</li>    
         </ol>
 
-   <li>you can install these dependencies by just type in console ==> C:\User> npm install -g <name-of-the-dependencies></li>  
+   <li>you can install these dependencies by just type in console ==> C:\User> npm install -g dependency_name </li>  
    <li> then you need to create your own environment variable for the database connections and authorization.</li>  
    <li> after all these things you can now run the app in your local host by just type the commands in console => C:\User> node app.js    </li>  
   </ul>    
