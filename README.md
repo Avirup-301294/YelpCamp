@@ -1,36 +1,53 @@
-<h1>Yelp Camp Capstone Project</h1>
-<ul>
-<h3>Technology Used</h3>
-<li>Node js</li>
-<li>Express js</li>
-<li>MongoDB</li>
-<li>Mongoose</li>
-<li>RESTful</li>
-<li>HTML</li>
-<li>CSS</li>
-</ul>
+### Yelp Camp
+Yelp Camp Using NodeJs, ExpressJs, MongoDB
 
-### To Run the app:
-<p>.Just open the console as an administrator, otherwise it may not work.
-  <ul>
-    <li>Type the command ==> C:\User> npm install</li>  
-    <li>after that you will get a file in the root project directory named "node_modulues"</li> 
-    <li>then we have to install dependencies that we have already in package.json file</li>  
-    <li>dependencies like:
-        <ol>
-          <li>express</li>
-          <li>passport</li>          
-          <li>ejs</li> 
-          <li>cookie-parser</li> 
-          <li>body-parser</li>
-          <li>passport-local</li> 
-          <li>mongoose</li>
-          <li>method-override</li> 
-          <li>connect-flash</li>    
-        </ol>
+# Requirements
 
-   <li>you can install these dependencies by just type in console ==> C:\User> npm install -g dependency_name </li>  
-   <li> then you need to create your own environment variable for the database connections and authorization.</li>  
-   <li> after all these things you can now run the app in your local host by just type the commands in console => C:\User> node app.js    </li>  
-  </ul>    
-</p>
+For development, you will only need Node.js and a node global package, npm, installed in your environement.
+
+### Node
+- #### Node installation on Windows
+
+  Just go on [official Node.js website](https://nodejs.org/) and download the installer.
+Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
+
+- #### Node installation on Ubuntu
+
+  You can install nodejs and npm easily with apt install, just run the following commands.
+
+      $ sudo apt-get install nodejs
+      $ sudo apt-get install npm
+
+- #### Other Operating Systems
+  You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
+
+If the installation was successful, you should be able to run the following command.
+
+    $ node --version
+    v8.11.3
+
+    $ npm --version
+    6.1.0
+
+If you need to update `npm`, you can make it using `npm`! Cool right? After running the following command, just open again the command line and be happy.
+
+    $ npm install npm -g
+
+###
+---
+
+## Install
+
+    $ git clone https://github.com/Avirup-301294/yelp_camp
+    $ cd yelp_camp
+    $ npm install
+
+## Configure app
+
+Create `.env` file at project root directory then edit it with your settings. You will need:
+
+- MongoURI;
+
+## Running the project
+ $ npm start
+
