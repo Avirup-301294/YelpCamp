@@ -38,8 +38,8 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
 ## Install
 
-    $ git clone https://github.com/Avirup-301294/yelp_camp
-    $ cd yelp_camp
+    $ git clone https://github.com/Avirup-301294/YelpCamp
+    $ cd YelpCamp
     $ npm install
 
 ## Configure app
