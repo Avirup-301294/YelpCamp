@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
+const {campgroundSchema} = require("./schemas.js");
 const catchAsync = require("./utils/CatchAsync");
 const ExpressError = require("./utils/ExpressError");
 const methodOverride = require("method-override");
@@ -28,6 +29,21 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+
+const validateCampground = (req, res, next) => {
+  
+  const {error} = campgroundSchema.validate(req.body);
+  
+  if(error) {
+    const msg = error.details.map(el => el.message).join(',')
+    console.log(msg)
+    throw new ExpressError(msg, 400);
+  } else {
+    next();
+  }
+  // console.log(result);
+}
+
 
 // Route  Base
 app.get("/", (req, res) => {
@@ -58,8 +74,9 @@ app.get("/campgrounds/new", async (req, res) => {
 // });
 
 // Route - Post - Custom Error
-app.post("/campgrounds", catchAsync(async (req, res, next) => {
-  if(!req.body.campground) throw new ExpressError('Invalid Campground Data', 400)
+app.post("/campgrounds", validateCampground, catchAsync(async (req, res, next) => {
+  // if(!req.body.campground) throw new ExpressError('Invalid Campground Data', 400)
+  
   const campground = new Campground(req.body.campground);
   await campground.save();
   res.redirect(`/campgrounds/${campground._id}`);
@@ -79,7 +96,7 @@ app.get("/campgrounds/:id/edit", catchAsync(async (req, res) => {
 
 // Route - Update
 
-app.put("/campgrounds/:id", catchAsync(async (req, res) => {
+app.put("/campgrounds/:id", validateCampground, catchAsync(async (req, res) => {
   const { id } = req.params;
   const campground = await Campground.findByIdAndUpdate(id, {
     ...req.body.campground,
@@ -102,8 +119,10 @@ app.all("*", (req, res, next) => {
 
 // Error Handling
 app.use((err, req, res, next) => {
-  const { message = 'Something went wrong!', statusCode = 500} = err;
-  res.status(statusCode).send(message);
+  const { statusCode = 500} = err;
+  if(!err.message)  err.message = 'Oh no, Something went wrong!';
+  res.status(statusCode).render('error', { err });
+  // res.status(statusCode).send(message);
 });
 
 app.listen(PORT, () => {
